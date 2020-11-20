@@ -1,0 +1,44 @@
+.shoePage__container {
+    min-height: 95vh;
+    padding: 2em 0;
+    background-color: #e6e6f7;
+    color: #222c2a;
+}
+
+.shoePage {
+    display: flex;
+    background: white;
+    padding: .5em;
+}
+
+.shoe--image {
+    width: 350px;
+}
+
+.shoeDetails {
+    margin-left: 3em;
+}
+
+.shoe--price, .shoe--content {
+    font-weight: normal;
+    color: #222c2a
+}
+.shoe-detail-head{
+    color: rgb(139, 139, 139);
+}
+.show--quantity {
+    display: flex;
+    color: #222c2a
+}
+.subtract,.add{
+    padding: 0em 1em;
+    margin: 0em;
+}
+.quantity--number{
+    padding: 0em ;
+    margin: 0em;
+}
+.quantity--title {
+    color: #222c2a;
+    font-weight: normal;
+}

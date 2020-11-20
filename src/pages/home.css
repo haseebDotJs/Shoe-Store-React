@@ -1,0 +1,25 @@
+.hero{
+    background-color: #e6e6f7;
+}
+.hero--section{
+    display: flex;
+    min-height: 90vh;
+}
+.hero__title,.hero__image{
+    width: 50%;
+}
+.hero--title{
+    color: rgb(49, 48, 48);
+    font-weight: 900;
+    font-size: 3.75rem;
+}
+.hero__image{
+    margin-left: 4em;
+}
+.fake{
+    text-transform: uppercase;
+    color: rgb(189, 18, 26);
+    font-family: 'Roboto',sans-serif;
+    font-weight: bolder;
+    font-size: 4rem;
+}

@@ -1,0 +1,13 @@
+footer{
+    padding: .75em 0;
+    background-color: #45566a;
+    text-align: center;
+    font-size: 1.135rem;
+}
+.footer__title{
+    font-size: 1.135rem;
+    font-weight: 600;
+    margin: 0;
+    color: white;
+    text-align: center;
+}

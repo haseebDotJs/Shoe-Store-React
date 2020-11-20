@@ -1,0 +1,40 @@
+li {
+    list-style-type: none;
+}
+
+header {
+    background-color: #45566a;
+    padding: .5em 0em;
+    font-size: 1.135rem;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 70px;
+    height: 40px;
+}
+
+.nav__list {
+    display: flex;
+    align-items: center;
+}
+
+.nav__item {
+    cursor: pointer;
+    margin: 0 .75em;
+    color: white;
+    text-transform: uppercase;
+}
+
+.nav__item:hover {
+    text-decoration: underline;
+}
+.shopping_cart{
+    width: 2em;
+    height: 2em;
+}
