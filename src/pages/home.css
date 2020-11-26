@@ -1,5 +1,6 @@
 .hero{
     background-color: #e6e6f7;
+    padding: 3em 0;
 }
 .hero--section{
     display: flex;
@@ -22,4 +23,28 @@
     font-family: 'Roboto',sans-serif;
     font-weight: bolder;
     font-size: 4rem;
+}
+@media screen and (max-width: 968px) {
+ 
+    .hero--section{
+        flex-direction: column;
+    }
+    .hero__title{
+        text-align: center;
+        width: 75%;
+        margin: 0 auto;
+    }
+    .hero__image{
+        width: 60%;
+        margin: 0 auto;
+    }
+
+}
+@media screen and (max-width: 500px){
+    .hero{
+        padding: 1em 0;
+    }
+    .hero__title,.hero__image{
+        width: 100%;
+    }
 }

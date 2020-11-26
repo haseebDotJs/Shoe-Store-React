@@ -8,37 +8,101 @@
 .shoePage {
     display: flex;
     background: white;
-    padding: .5em;
+    padding: 1em;
 }
-
+.shoe--title{
+    color: rgb(0, 83, 109);
+    font-weight: bold;
+    font-size: 2.5rem;
+    margin: .25em 0
+}
 .shoe--image {
-    width: 350px;
+    width: 300px;
+    max-height: 450px;
 }
 
 .shoeDetails {
-    margin-left: 3em;
-}
-
-.shoe--price, .shoe--content {
-    font-weight: normal;
-    color: #222c2a
+    margin-left: 1.5em;
 }
 .shoe-detail-head{
-    color: rgb(139, 139, 139);
+    margin: 0;
+    font-weight: bold;
 }
-.show--quantity {
+.shoe--price, .shoe--content,.shoe-quantity {
+    font-weight: normal;
+    color: #222c2a;
+}
+
+.shoe--quantity {
     display: flex;
     color: #222c2a
 }
-.subtract,.add{
-    padding: 0em 1em;
-    margin: 0em;
+.quantity--title {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
 }
 .quantity--number{
-    padding: 0em ;
-    margin: 0em;
+    width: 3em;
 }
-.quantity--title {
-    color: #222c2a;
-    font-weight: normal;
+.subtract,.add{
+    font-size: 1rem;
+    padding: .25em .5em;
+    margin: 0em;
+    background-color: transparent;
+}
+.subtract{
+    margin-left: 0
+}
+.subtract:hover{
+    color: red;
+}
+.add:hover{
+    color: rgb(0, 228, 0);
+}
+.add-to-cart{
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 1em 0;
+    color: white;
+    background-color: rgb(0, 83, 109);
+    max-width: 200px;
+    text-align: center;
+    padding: .5em 1em ;
+    outline: none;
+    border: none;
+}
+.added-to-cart{
+    opacity: .75;
+    cursor: initial;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 1em 0;
+    color: white;
+    background-color: rgb(0, 83, 109);
+    max-width: 200px;
+    text-align: center;
+    padding: .5em 1em ;
+    outline: none;
+    border: none;
+}
+.goBackToProducts{
+    font-size: .85rem;
+}
+.goBackToProducts:hover{
+    text-decoration: underline;
+}
+@media screen and (max-width: 768px){
+    .shoePage {
+       flex-direction: column;
+    }
+    .shoe--image{
+        width: 100%;
+    }
+    .shoeDetails{
+        width: 90%;
+        margin-left: 0;
+    }
 }

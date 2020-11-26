@@ -11,6 +11,8 @@ import ShowPassword from './form-images/iconfinder_eye1_6351969.png'
 import HidePassword from './form-images/iconfinder_eye2_6351930.png'
 
 const Signup = () => {
+    console.log('signup compo - rendering');
+
     const [password, setPassword] = useState(false)
     const [confirmPassword, setConfirmPassword] = useState(false)
     const navigate = useNavigate();
@@ -22,7 +24,6 @@ const Signup = () => {
         type: confirmPassword ? 'text' : 'password',
         image: confirmPassword ? ShowPassword : HidePassword
     }
-    console.log('password ', passwordField.type);
 
 
     const schema = Yup.object().shape({

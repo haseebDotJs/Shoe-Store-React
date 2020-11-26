@@ -1,21 +1,17 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './login.css'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from "yup";
-import { useNavigate } from 'react-router-dom';
 
 import ShowPassword from './form-images/iconfinder_eye1_6351969.png'
 import HidePassword from './form-images/iconfinder_eye2_6351930.png'
 
 
-const Login = ({ items: [headerItems, setHeaderItems] }) => {
-    console.log('headeritems', headerItems);
-    const oldest = [...headerItems, {2: { id: 3, link: '/login', item: 'e.username' }}]
-    console.log('oldest ', oldest);
-    const newest = Object.assign([], headerItems, {2: { id: 3, link: '/', item: 'e.username' }})
-    console.log('newest ', newest);
+const Login = ({ items: [headerItems, setHeaderItems],login: [login,setLogin] }) => {
+    console.log('login compo - rendering', login);
+
 
     const [password, setPassword] = useState(false)
     const [empty, setEmpty] = useState({ condition: false, statement: '' })
@@ -40,11 +36,18 @@ const Login = ({ items: [headerItems, setHeaderItems] }) => {
         let formData = JSON.parse(localStorage.getItem('user-form'))
         if (formData) {
             if (formData.username === e.username && formData.password === e.password) {
+                navigate('/')
                 reset()
-                // let newItems = [...headerItems, { id: 3, link: '/login', item: 'login' } =]
-                // const b = ;
-                setHeaderItems(newest)
-                navigate('/products', { user: e.username })
+                let newHeaderItems = Object.assign(
+                    [],
+                    headerItems,
+                    { 2: { id: 3, link: '/login', item: formData.username } }
+                )
+
+                setHeaderItems(newHeaderItems)
+                setLogin(true)
+                localStorage.setItem('login', JSON.stringify(true))
+                localStorage.setItem('userName', JSON.stringify(formData.username))
             }
             else if (formData.username === e.username && formData.password !== e.password) {
                 setEmpty({ condition: true, statement: 'Password is not valid' })
@@ -61,7 +64,7 @@ const Login = ({ items: [headerItems, setHeaderItems] }) => {
         e.target.value = e.target.value.replace(/\s/g, '')
     }
 
-    console.log('errors ', errors ? '{} is not null' : '{} is null');
+    // console.log('errors ', errors ? '{} is not null' : '{} is null');
     return (
         <main id='login--main' >
             <div className='container'>
@@ -87,7 +90,7 @@ const Login = ({ items: [headerItems, setHeaderItems] }) => {
                         </div>
                         {errors.password && errors.password.type === 'required' && <p className='errorFound'>{errors.password.message}</p>}
                     </div>
-                    <button type='submit' className='submit'>Login</button>
+                    <button type='submit' className='login'>Login</button>
                     <p>Don't have an account? <Link to='/signup'>Signup</Link></p>
 
                 </form>

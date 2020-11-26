@@ -34,7 +34,49 @@ header {
 .nav__item:hover {
     text-decoration: underline;
 }
-.shopping_cart{
+
+.userNameAndDropdown {
+    display: flex;
+    align-items: center;
+    margin: 0 .75em 0 0;
+
+}
+
+.userName {
+    margin-right: .25em;
+    text-transform: none;
+    position: relative;
+}
+
+.userName:hover {
+    text-decoration: none;
+}
+
+.dropDown {
+    cursor: pointer;
+}
+
+.logout__div {
+    position: absolute;
+    top: 3.5em;
+    z-index: 1;
+    justify-self: flex-end;
+}
+
+.logout {
+    background-color: white;
+    color: #45566a;
+    text-align: center;
+    padding: .5em 2em;
+    margin: 0;
+    font-size: 1.25rem;
+}
+.logout:hover {
+    color: white;
+    background-color: #45566a;
+    cursor: pointer;
+}
+.shopping_cart {
     width: 2em;
     height: 2em;
 }

@@ -1,9 +1,10 @@
-import {Link} from 'react-router-dom'
+import { memo } from 'react'
+import { Link } from 'react-router-dom'
 import Api from '../components/api'
 import './displayShoes.css'
 
-const DisplayShoes = (props) => {
-    console.log('props mainpage ', props );
+const DisplayShoes = () => {
+    console.log('display shoes compo - rendering ');
     return (
         <main className='main__page'>
             <div className='container products'>
@@ -21,4 +22,4 @@ const DisplayShoes = (props) => {
         </main>
     )
 }
-export default DisplayShoes
+export default memo(DisplayShoes)

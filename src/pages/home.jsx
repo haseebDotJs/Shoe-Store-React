@@ -1,9 +1,11 @@
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import heroImage from '../shoes images/hero-page-image/Nike-Shoes-Transparent.png'
 
 import './home.css'
 const Home = () => {
+    console.log('home compo - rendering');
     return (
+
         <main className='hero'>
             <div className='container hero--section'>
                 <div className='hero__title'>
