@@ -4,14 +4,12 @@ import deleteIcon from './inventory-deleteIcon/iconfinder_basket_1814090 (1).svg
 import './inventory.css'
 const Inventory = (
     { option: [inventory, setInventory],
-        add: [addedToInventory, setAddedToInventory]
+      add: [addedToInventory, setAddedToInventory],
+      items: [totalItem,setTotalItem]
+
     }
 ) => {
-    console.log('inventory compo - rendering');
-
-    // const [subTotal, setSubTotal] = useState(0)
-    // const [deliveryCharges, setDeliveryCharges] = useState(0)
-    // const [total, setTotal] = useState(0)
+    // billing of items
     let subTotal = inventory.reduce((acc, item) => {
         return acc + item.totalPrice
     }, 0)
@@ -19,12 +17,17 @@ const Inventory = (
         return acc + item.deliveryCharges
     }, 0)
     let total = subTotal + deliveryCharges
+    // billing of items
+
+
     const removeThisItem = (remove) => {
         // making a spearate copy of inventory 
         let allItems = [...inventory]
         let indexOfItem = allItems.indexOf(remove);
-        allItems.splice(indexOfItem, 1)
+        let [removedItem] = allItems.splice(indexOfItem, 1)//destructuring removed item from 0 index of array and removing remoed item from allItems array
         setInventory(allItems)
+        setTotalItem(totalItem - removedItem.quantity)
+
         // enabling item to add to inventory again
         setAddedToInventory(Object.assign([], addedToInventory, { [+remove._id - 1]: remove }))
     }
@@ -64,10 +67,10 @@ const Inventory = (
                     }
                 </div>
 
-                < aside className='inventory__items__bill'>
+                <aside className='inventory__items__bill'>
                     <h3 className='item__bills__order__summary'>Order Summary</h3>
                     <div className='bill__items'>
-                        <h5>Subtotal:</h5>
+                        <h5>Subtotal: <span style={{fontSize: '.75rem'}}>(total {totalItem} items)</span></h5>
                         <h5>${subTotal}</h5>
                     </div>
                     <div className='bill__items'>

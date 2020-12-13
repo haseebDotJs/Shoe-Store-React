@@ -4,7 +4,6 @@ import Api from '../components/api'
 import './displayShoes.css'
 
 const DisplayShoes = () => {
-    console.log('display shoes compo - rendering ');
     return (
         <main className='main__page'>
             <div className='container products'>

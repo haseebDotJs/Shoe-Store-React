@@ -14,6 +14,11 @@ header {
     justify-content: space-between;
 }
 
+.hamburgerIcon {
+    width: 32px;
+    display: none;
+}
+
 .logo {
     width: 70px;
     height: 40px;
@@ -39,7 +44,6 @@ header {
     display: flex;
     align-items: center;
     margin: 0 .75em 0 0;
-
 }
 
 .userName {
@@ -71,12 +75,42 @@ header {
     margin: 0;
     font-size: 1.25rem;
 }
+
 .logout:hover {
     color: white;
     background-color: #45566a;
     cursor: pointer;
 }
+
 .shopping_cart {
     width: 2em;
     height: 2em;
+}
+
+.item__count__header {
+    color: white;
+}
+
+.item__count__header:hover {
+    text-decoration: none;
+}
+
+@media screen and (max-width: 968px) {
+    .row {
+        flex-direction: column;
+    }
+    .hamburgerIcon {
+        display: block;
+    }
+    .nav__list {
+        flex-direction: column;
+    }
+    .nav__item {
+        margin-bottom: 1em;
+    }
+    .header__logo {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
 }

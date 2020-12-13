@@ -5,11 +5,11 @@ import Api from '../components/api'
 import NotFound from '../components/notFound'
 
 const ShoeDetails = (
-    { option: [inventory, setInventory],
-        add: [addedToInventory, setAddedToInventory]
+    { option: [, setInventory],
+      add: [addedToInventory, setAddedToInventory],
+      items: [totalItem,setTotalItem]
     }
 ) => {
-    console.log('shoe details compo - rendering');
     // console.log('added',addedToInventory,'setAdded',setAddedToInventory);
     // const [added, setAdded] = useState(false)
     const { id } = useParams()
@@ -21,6 +21,7 @@ const ShoeDetails = (
         setAddedToInventory((prevValue) => Object.assign([], prevValue, { [+currentShoePage._id - 1]: thisIsAdded }))
         let merging = { ...currentShoePage, quantity: quantity, deliveryCharges: 5, totalPrice: currentShoePage.price * quantity }
         setInventory((prevValue) => [...prevValue, merging])
+        setTotalItem(totalItem + merging.quantity)
     }
     if (!currentShoePage) {
         return (

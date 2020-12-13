@@ -24,6 +24,17 @@
     font-weight: bolder;
     font-size: 4rem;
 }
+.hero__goto__products{
+    background-color: rgb(189, 18, 26);
+    padding: .75em 2em;
+    border: none;
+    color: rgb(255, 255, 255);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+.hero__goto__products:hover{
+    opacity: .75;
+}
 @media screen and (max-width: 968px) {
  
     .hero--section{
@@ -32,7 +43,7 @@
     .hero__title{
         text-align: center;
         width: 75%;
-        margin: 0 auto;
+        margin: 0 auto 2em auto;
     }
     .hero__image{
         width: 60%;

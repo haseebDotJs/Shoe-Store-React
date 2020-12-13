@@ -11,7 +11,6 @@ import ShowPassword from './form-images/iconfinder_eye1_6351969.png'
 import HidePassword from './form-images/iconfinder_eye2_6351930.png'
 
 const Signup = () => {
-    console.log('signup compo - rendering');
 
     const [password, setPassword] = useState(false)
     const [confirmPassword, setConfirmPassword] = useState(false)
@@ -27,15 +26,26 @@ const Signup = () => {
 
 
     const schema = Yup.object().shape({
-        username: Yup.string().required('Field is required!').min(8, 'Minimum 8 characters')
+        username: Yup
+            .string()
+            .required('Field is required!')
+            .min(8, 'Minimum 8 characters')
             .max(12, 'Maximum 12 characters'),
 
-        email: Yup.string().required('Field is required!'),
-        password: Yup.string().required('Field is required!').min(8, 'Minimum 8 characters')
-            .max(16, 'Maximum 16 characters'),
+        email: Yup
+            .string()
+            .required('Field is required!'),
+        password: Yup
+            .string()
+            .required('Field is required!')
+            .min(8, 'Minimum 8 characters')
+            .max(16, 'Maximum 16 characters')
+            .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9])/, "Password must contain upper lower and special chars"),
 
-        confirmPassword: Yup.string().required('Field is required!').min(8, 'Minimum 8 characters')
-            .max(16, 'Maximum 16 characters').oneOf([Yup.ref('password'), null], 'Password do not match')
+        confirmPassword: Yup
+            .string()
+            .required('Field is required!')
+            .oneOf([Yup.ref('password'), null], 'Password do not match')
     })
 
     const { register, handleSubmit, errors, reset } = useForm({

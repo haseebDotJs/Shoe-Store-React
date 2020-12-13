@@ -6,7 +6,6 @@ import './App.css'
 import Api from './components/api'
 
 import Header from './components/header'
-import cart from './components/icons for header/iconfinder-icon.svg'
 
 import Home from './pages/home'
 
@@ -23,16 +22,8 @@ import Footer from './components/footer'
 
 import NotFound from './components/notFound'
 const App = () => {
-  console.log('app is rendering');
   let loggedUserName = JSON.parse(localStorage.getItem('userName'))
-  const [headerItems, setHeaderItems] = useState([
-    { id: 1, item: 'home' },
-    { id: 2, item: 'products' },
-    { id: 3, item:  loggedUserName},
-    { id: 4, item: <img className='shopping_cart' src={cart} alt='shopping cart' /> }
-  ])
-
-  console.log('updated header Items', headerItems);
+  const [headerItems, setHeaderItems] = useState(loggedUserName)
 
   const [inventory, setInventory] = useState([])
   const [addedToInventory, setAddedToInventory] = useState(
@@ -43,33 +34,23 @@ const App = () => {
       }
     })
   )
-
+  const [totalItem,setTotalItem] = useState(0)
   let isUserLoggedIn = JSON.parse(localStorage.getItem('login'))
-  // console.log('iseUserLoggedIn?', isUserLoggedIn);
-
   const [login, setLogin] = useState(isUserLoggedIn)
-
-
-  let headerChangedItems = JSON.parse(localStorage.getItem('headerItems'))
-  console.log('headerChangedItems', headerChangedItems);
-  // headerChangedItems && setHeaderItems(headerChangedItems)
-
-
-
 
   const routes = login ?
     <>
       <Router>
-        <Header item={headerItems} login={[login,setLogin]}/>
+        <Header item={headerItems} login={[setLogin]} items={[totalItem]} inventory={[setInventory]} total={[setTotalItem]}/>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='products' element={<Products />}>
             <Route path='/' element={<DisplayShoes />} />
-            <Route path=':id' element={<ShoeDetails option={[inventory, setInventory]} add={[addedToInventory, setAddedToInventory]} />} />
-          </Route>
+            <Route path=':id' element={<ShoeDetails option={[inventory, setInventory]} add={[addedToInventory, setAddedToInventory]}  items={[totalItem,setTotalItem]} />} />
+          </Route> 
           <Route path='login' element={<Navigate to='/' />} />
           <Route path='signup' element={<Navigate to='/' />} />
-          <Route path='inventory' element={<Inventory option={[inventory, setInventory]} add={[addedToInventory, setAddedToInventory]} />} />
+          <Route path='inventory' element={<Inventory option={[inventory, setInventory]} add={[addedToInventory, setAddedToInventory]} items={[totalItem,setTotalItem]}  />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
         <Footer />
@@ -81,13 +62,11 @@ const App = () => {
     <>
       <Router >
         <Routes>
-          <Route path='login' element={<Login items={[headerItems, setHeaderItems]} login={[login, setLogin]} />} />
+          <Route path='login' element={<Login items={setHeaderItems} login={[setLogin]} />} />
           <Route path='signup' element={<Signup />} />
           <Route path='*' element={<Navigate to='/login' />} />
         </Routes>
       </Router>
-
-
     </>
 
   return (
