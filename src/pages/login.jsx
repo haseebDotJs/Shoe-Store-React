@@ -31,7 +31,7 @@ const Login = ({items: setHeaderItems, login: [setLogin] }) => {
     })
 
     const onSubmit = (e) => {
-        let formData = JSON.parse(localStorage.getItem('user-form') || {})
+        let formData = JSON.parse(localStorage.getItem('user-form')) || {}
         if (formData) {
             if (formData.username === e.username && formData.password === e.password) {
                 navigate('/')
