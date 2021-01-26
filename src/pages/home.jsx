@@ -4,7 +4,6 @@ import heroImage from '../shoes images/hero-page-image/Nike-Shoes-Transparent.pn
 import './home.css'
 const Home = () => {
     return (
-
         <main className='hero'>
             <div className='container hero--section'>
                 <div className='hero__title'>
@@ -13,7 +12,7 @@ const Home = () => {
                     <Link to='/products'><button className='hero__goto__products'>Go to products</button></Link>
                 </div>
                 <div className='hero__image'>
-                    <Link to='products'>  <img className='hero--image' src={heroImage} alt='shoe on hero page' /></Link>
+                    <Link to='/products'>  <img className='hero--image' src={heroImage} alt='shoe on hero page' /></Link>
                 </div>
             </div>
 

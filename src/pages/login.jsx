@@ -9,8 +9,8 @@ import ShowPassword from './form-images/iconfinder_eye1_6351969.png'
 import HidePassword from './form-images/iconfinder_eye2_6351930.png'
 
 
-const Login = ({items: setHeaderItems, login: [setLogin] }) => {
-   console.log('headeritems', setHeaderItems);
+const Login = ({ items: setHeaderItems, login: [setLogin] }) => {
+    console.log('headeritems', setHeaderItems);
     const [password, setPassword] = useState(false)
     const [empty, setEmpty] = useState({ condition: false, statement: '' })
 
@@ -31,7 +31,7 @@ const Login = ({items: setHeaderItems, login: [setLogin] }) => {
     })
 
     const onSubmit = (e) => {
-        let formData = JSON.parse(localStorage.getItem('user-form') || {})
+        let formData = JSON.parse(localStorage.getItem('user-form')) || {}
         if (formData) {
             if (formData.username === e.username && formData.password === e.password) {
                 navigate('/')
