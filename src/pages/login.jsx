@@ -10,7 +10,7 @@ import HidePassword from './form-images/iconfinder_eye2_6351930.png'
 
 
 const Login = ({items: setHeaderItems, login: [setLogin] }) => {
-   console.log('headeritems', setHeaderItems);
+//    console.log('headeritems', setHeaderItems);
     const [password, setPassword] = useState(false)
     const [empty, setEmpty] = useState({ condition: false, statement: '' })
 
