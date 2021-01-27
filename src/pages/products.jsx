@@ -1,10 +1,10 @@
 import {memo} from 'react'
 import { Outlet } from 'react-router-dom'
 
-const Product = () => {
+const Products = () => {
     return (
         <Outlet />
     )
 }
 
-export default memo(Product)
+export default memo(Products)
