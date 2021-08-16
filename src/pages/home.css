@@ -4,6 +4,7 @@
 }
 .hero--section{
     display: flex;
+    align-items: center;
     min-height: 90vh;
 }
 .hero__title,.hero__image{

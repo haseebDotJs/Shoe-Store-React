@@ -16,6 +16,7 @@ const Login = ({ items: setHeaderItems, login: [setLogin] }) => {
     const [empty, setEmpty] = useState({ condition: false, statement: '' })
 
     const navigate = useNavigate();
+
     let passwordField = {
         type: password ? 'text' : 'password',
         image: password ? ShowPassword : HidePassword
@@ -63,7 +64,6 @@ const Login = ({ items: setHeaderItems, login: [setLogin] }) => {
             <div className='container'>
                 <form className='form--wrapper--login' onSubmit={handleSubmit(onSubmit)}>
                     {empty.condition && <h3 className='errorFound'>{empty.statement}</h3>}
-
                     <label htmlFor='username'>Username</label>
                     <div className='formField'>
                         <input type="text"

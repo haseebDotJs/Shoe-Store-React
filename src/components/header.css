@@ -65,6 +65,7 @@ header {
     top: 3.5em;
     z-index: 1;
     justify-self: flex-end;
+    cursor: pointer;
 }
 
 .logout {
@@ -74,12 +75,6 @@ header {
     padding: .5em 2em;
     margin: 0;
     font-size: 1.25rem;
-}
-
-.logout:hover {
-    color: white;
-    background-color: #45566a;
-    cursor: pointer;
 }
 
 .shopping_cart {
@@ -95,12 +90,13 @@ header {
     text-decoration: none;
 }
 
-@media screen and (max-width: 968px) {
+@media screen and (max-width: 599px) {
     .row {
         flex-direction: column;
     }
     .hamburgerIcon {
         display: block;
+        cursor: pointer;
     }
     .nav__list {
         flex-direction: column;
@@ -112,5 +108,12 @@ header {
         width: 100%;
         display: flex;
         justify-content: space-between;
+        align-items: center;
+    }
+    .logout__div {
+        position: static;
+        top: 0em;
+        z-index: 0;
+        margin: 0 0 .5em 0;
     }
 }

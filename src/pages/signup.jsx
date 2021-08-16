@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-
 import './signup.css'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'

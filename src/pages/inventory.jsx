@@ -4,11 +4,13 @@ import deleteIcon from './inventory-deleteIcon/iconfinder_basket_1814090 (1).svg
 import './inventory.css'
 const Inventory = (
     { option: [inventory, setInventory],
-      add: [addedToInventory, setAddedToInventory],
-      items: [totalItem,setTotalItem]
+        add: [addedToInventory, setAddedToInventory],
+        items: [totalItem, setTotalItem]
 
     }
 ) => {
+    console.log('inventory', inventory);
+    console.log('totalItem', totalItem);
     // billing of items
     let subTotal = inventory.reduce((acc, item) => {
         return acc + item.totalPrice
@@ -57,6 +59,9 @@ const Inventory = (
                                             <p className='item--quantity'>Quantity: {info.quantity}</p>
                                             <p className='item--delivery'>Shipping fee: ${info.deliveryCharges}</p>
                                             <p className='item--total--price'>Total: ${info.totalPrice + info.deliveryCharges}</p>
+                                            {/* <button className='subtract' onClick={() => quantity > 1 && setQuantity(quantity - 1)}>-</button>
+                                            <input className='quantity--number' type='text' value={quantity} onChange={() => setQuantity(quantity)} />
+                                            <button className='add' onClick={() => setQuantity(quantity + 1)}>+</button> */}
                                             <img src={deleteIcon} alt='delete button' className='deleteItemFromInventory' onClick={() => removeThisItem(info)} />
                                         </div>
                                     </div>
@@ -70,7 +75,7 @@ const Inventory = (
                 <aside className='inventory__items__bill'>
                     <h3 className='item__bills__order__summary'>Order Summary</h3>
                     <div className='bill__items'>
-                        <h5>Subtotal: <span style={{fontSize: '.75rem'}}>(total {totalItem} items)</span></h5>
+                        <h5>Subtotal: <span style={{ fontSize: '.75rem' }}>(total {totalItem} items)</span></h5>
                         <h5>${subTotal}</h5>
                     </div>
                     <div className='bill__items'>

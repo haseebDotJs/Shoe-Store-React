@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { useState } from 'react'
 
 import './App.css'
+
 import Api from './components/api'
 
 import Header from './components/header'
@@ -21,6 +22,7 @@ import ShoeDetails from './pages/shoeDetails'
 import Footer from './components/footer'
 
 import NotFound from './components/notFound'
+
 const App = () => {
   let loggedUserName = JSON.parse(localStorage.getItem('userName'))
   const [headerItems, setHeaderItems] = useState(loggedUserName)

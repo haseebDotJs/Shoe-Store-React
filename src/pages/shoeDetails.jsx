@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import "aos/dist/aos.css";
 import './shoeDetails.css'
 import Api from '../components/api'
 import NotFound from '../components/notFound'
 
 const ShoeDetails = (
     { option: [, setInventory],
-      add: [addedToInventory, setAddedToInventory],
-      items: [totalItem,setTotalItem]
+        add: [addedToInventory, setAddedToInventory],
+        items: [totalItem, setTotalItem]
     }
 ) => {
     // console.log('added',addedToInventory,'setAdded',setAddedToInventory);
@@ -23,6 +24,7 @@ const ShoeDetails = (
         setInventory((prevValue) => [...prevValue, merging])
         setTotalItem(totalItem + merging.quantity)
     }
+
     if (!currentShoePage) {
         return (
             <NotFound />
@@ -32,7 +34,9 @@ const ShoeDetails = (
 
     return (
         <section className='shoePage__container'>
-            <div className='container shoePage'>
+            <div
+                className='container shoePage'
+            >
                 <div className='shoeImage'>
                     <img className='shoe--image' src={currentShoePage.src} alt="shoe" />
                 </div>
@@ -49,6 +53,7 @@ const ShoeDetails = (
                     {addedToInventory[thisItemIndex].added ? <button className='added-to-cart' disabled>Added to cart</button>
                         : <button className='add-to-cart' onClick={addToInventory}>Add to cart</button>
                     }
+                    <Link to='/inventory'><li className='visitInventory'>Visit inventory</li></Link>
                     <Link to='/products'><li className='goBackToProducts'>Go back</li></Link>
                 </div>
             </div>

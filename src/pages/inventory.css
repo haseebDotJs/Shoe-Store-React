@@ -22,13 +22,17 @@
 
 .inventory--container {
     display: flex;
-    min-height: 100vh;
+    min-height: 90vh;
 }
 
 .inventory--item--container {
     display: flex;
     background-color: white;
     padding: .5em 1em;
+}
+
+.inventory--item--image {
+    align-self: center;
 }
 
 .inventory--item--container+.inventory--item--container {
@@ -46,7 +50,7 @@
 }
 
 .itemImage {
-    width: 100px;
+    width: 150px;
 }
 
 .specific--item--additional--detail {
@@ -58,8 +62,13 @@
     margin: 0 0 .25em 0;
 }
 
-.item--content, .item--price, .item--quantity, .item--total--price, .item--delivery {
-    font-size: .9rem;
+.item--content {
+    font-size: .8rem;
+    color: gray
+}
+
+.item--price, .item--quantity, .item--total--price, .item--delivery {
+    font-size: .8rem;
     margin: 0 0 .5em 0;
 }
 
@@ -74,10 +83,13 @@
 .inventory__items__bill {
     background-color: white;
     width: 30%;
-    padding: 2em 1.5em;
+    padding: 1em 1.5em;
     margin-left: 3em;
     height: auto;
-    /* max-height: 50vh; */
+    max-height: 310px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .item__bills__order__summary {
@@ -124,4 +136,8 @@
     .specific--item--additional--detail {
         margin-left: 0;
     }
+    .inventory--item--image {
+        align-self: flex-start;
+    }
+    
 }
